@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { createStore, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
+import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import rootReducer from './Reducers/root-reducer';
 
@@ -12,9 +12,8 @@ import rootReducer from './Reducers/root-reducer';
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__ 
 && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(rootReducer, devTools, applyMiddleware(sagaMiddleware));
+const store = createStore(rootReducer, devTools, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
