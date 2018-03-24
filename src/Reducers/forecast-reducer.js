@@ -1,7 +1,7 @@
 const forecastReducer = (state = {}, action) => {
   switch (action.type) {
-  case 'ADD_FORECAST':
-    return action.forecastObject
+  case 'FETCH_WEATHER_DONE':
+    return action.weatherData
   default:
     return state;
   }
