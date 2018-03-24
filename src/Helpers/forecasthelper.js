@@ -1,4 +1,5 @@
 import key from '../Helpers/key';
+
 export const fetchForecast = async() => {
   const initialFetch = await fetch(`https://api.wunderground.com/api/${key}
   /conditions/hourly/forecast10day/q/
