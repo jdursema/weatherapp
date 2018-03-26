@@ -25,7 +25,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.props.handleWeather()
+    this.props.handleWeather(this.state.currentCity)
   }
   
   handleOpen = () => {
@@ -46,8 +46,7 @@ class App extends Component {
 
   changeCity = () => {
     this.setState({currentCity: this.state.searchInput, open: false})
-    this.props.handleForecast();
-    
+    this.props.handleWeather(this.state.searchInput);
   }
 
   changeInput = (event) => {
@@ -104,8 +103,9 @@ class App extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  handleWeather: () => dispatch({
-    type: 'FETCH_WEATHER'
+  handleWeather: (city) => dispatch({
+    type: 'FETCH_WEATHER',
+    city
   })
 })
 

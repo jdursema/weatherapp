@@ -1,9 +1,10 @@
 import key from '../Helpers/key';
 
-export const fetchForecast = async() => {
+export const fetchForecast = async(city) => {
+  const cityArray = city.split(', ')
   const initialFetch = await fetch(`https://api.wunderground.com/api/${key}
   /conditions/hourly/forecast10day/q/
-  CO/denver.json`)
+  ${cityArray[1]}/${cityArray[0]}.json`)
   const fetchResponse = await initialFetch.json()
   const cleanResponse = await cleanData(fetchResponse)
   return cleanResponse
