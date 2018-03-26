@@ -1,14 +1,16 @@
 import React from 'react';
 import Tabs, { Tab } from 'material-ui/Tabs';
+import SevenHour from '../SevenHour/SevenHour';
+import TenDay from '../TenDay/TenDay';
 
 const Forecast = (props) => {
   return (
     <Tabs>
       <Tab label="Seven Day">
-        <div>hi</div>
+        <SevenHour></SevenHour>
       </Tab>
       <Tab label="Eleven Hour">
-        <div>bye</div>
+        <TenDay></TenDay>
       </Tab>
     </Tabs>
   )

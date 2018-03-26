@@ -60,7 +60,7 @@ class App extends Component {
         <AppBar 
           title="Weather"
           iconElementRight={
-            <div>
+            <div className='right-title'>
               <p>{this.state.currentCity}</p>
               <RaisedButton 
                 label="Change City"
