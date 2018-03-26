@@ -37,8 +37,7 @@ const cleanData = (data) => {
   }, []);
 
 
-  const tenDay = data.forecast.simpleforecast.forecastday.
-  reduce((tenDayArray, day) => {
+  const tenDay = data.forecast.simpleforecast.forecastday.reduce((tenDayArray, day) => {
     tenDayArray.push(
       {dayHigh: day.high.fahrenheit, 
       dayLow: day.low.fahrenheit, 
