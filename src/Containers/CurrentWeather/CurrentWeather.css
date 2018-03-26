@@ -1,0 +1,37 @@
+.current{
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.condition {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  margin-bottom: 10px;
+}
+
+.current-temp{
+  font-size: 52px;
+  margin: 0;
+}
+
+.date-city {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 30px 5px 30px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid white;
+
+}
+
+.summary-high-low {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 5px 30px;
+}

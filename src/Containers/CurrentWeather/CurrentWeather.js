@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './CurrentWeather.css';
 
 
 class CurrentWeather extends Component {
@@ -18,12 +19,6 @@ class CurrentWeather extends Component {
     return (
       <div>
       <div className = "current">
-        <div className = "condition">
-          <div className = "current-img">
-            <i className={`current-icon 
-              wi wi-wu-${this.state.currentWeather.img}`}></i>
-          </div>
-        </div>
         <div className = "date-city">
           <div className = "city">
             <p> {this.state.currentWeather.city} </p>
@@ -37,7 +32,6 @@ class CurrentWeather extends Component {
           
           </div>
         </div>
-        <div className = "summary-high-low">
           <div className = "current-cond">
             <p>{this.state.currentWeather.currentCond}</p>
           </div>
@@ -45,7 +39,7 @@ class CurrentWeather extends Component {
             <p> High: {this.state.currentWeather.highTemp}&deg;|
              Low: {this.state.currentWeather.lowTemp}&deg;</p>
           </div>
-        </div>
+
         <div className = "summary">
           <p> {this.state.currentWeather.summary} </p>
         </div>   

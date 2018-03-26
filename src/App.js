@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import logo from './logo.svg';
 import './App.css';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
 import CurrentWeather from './Containers/CurrentWeather/CurrentWeather';
-import Forecast from './Containers/Forecast/Forecast';
-import TextField from 'material-ui/TextField';
+import Forecast from './Components/Forecast/Forecast';
 import cities from './Cities';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
+import MapsPlace from 'material-ui/svg-icons/maps/place';
+import IconButton from 'material-ui/IconButton';
 
 class App extends Component {
   constructor () {
@@ -58,6 +58,7 @@ class App extends Component {
       <MuiThemeProvider>
         <AppBar 
           title="Weather"
+          iconElementLeft={<IconButton><MapsPlace /></IconButton>}
           iconElementRight={
             <div className='right-title'>
               <p>{this.state.currentCity}</p>

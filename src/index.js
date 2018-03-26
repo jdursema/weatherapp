@@ -20,8 +20,6 @@ const store = createStore(rootReducer, devTools, applyMiddleware(sagaMiddleware)
 
 sagaMiddleware.run(rootSaga)
 
-const action = type => store.dispatch({type})
-
 ReactDOM.render(
   <Provider store={store}>
     <App/>

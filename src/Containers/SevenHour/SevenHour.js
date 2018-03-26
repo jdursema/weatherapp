@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import {Card, CardHeader, CardTitle} from 'material-ui/Card';
 import './SevenHour.css'
 
-
-
 class SevenHour extends Component {
   constructor () {
     super ();
@@ -27,12 +25,13 @@ class SevenHour extends Component {
         mappedCards = this.state.sevenHour.map((forecast, index) => {
           return (
             <Card
-             style= {{width: '25%', margin: '5px'}} >
+              style= {{width: '25%', margin: '5px'}} >
               <CardHeader
                 title={forecast.time}/>
               <CardTitle
                 title={forecast.cond}
-                subtitle={forecast.temp}/>
+                subtitle={forecast.temp}
+                subtitleStyle= {{fontSize:'18px'}}/>
             </Card>
           )
         })
@@ -51,3 +50,4 @@ const mapStateToProps = state => ({
 })
 
 export default connect(mapStateToProps, null) (SevenHour);
+
