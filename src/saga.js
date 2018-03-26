@@ -4,7 +4,6 @@ import { fetchForecast } from './Helpers/forecasthelper';
 function* fetchWeather(action){
   try{
     const weatherData = yield call(fetchForecast)
-    console.log(weatherData)
     yield put({ type: 'FETCH_WEATHER_DONE', weatherData })
   }
   catch (error) {
