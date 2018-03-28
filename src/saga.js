@@ -7,7 +7,7 @@ function* fetchWeather(action){
     yield put({ type: 'FETCH_WEATHER_DONE', weatherData })
   }
   catch (error) {
-    yield put ({ type: 'FETCH_FAILED', error})
+    yield put ({ type: 'FETCH_FAILED' })
   }
 }
 
