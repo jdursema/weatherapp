@@ -1,7 +1,7 @@
 import React from 'react';
 import Tabs, { Tab } from 'material-ui/Tabs';
-import SevenHour from '../../Containers/SevenHour/SevenHour';
-import TenDay from '../../Containers/TenDay/TenDay';
+import SevenHour from '../SevenHour/SevenHour';
+import TenDay from '../TenDay/TenDay';
 import PropTypes from 'prop-types';
 
 
