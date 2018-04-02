@@ -4,13 +4,14 @@ import SevenHour from '../../Containers/SevenHour/SevenHour';
 import TenDay from '../../Containers/TenDay/TenDay';
 
 const Forecast = (props) => {
+  console.log(props)
   return (
     <Tabs>
       <Tab label="Seven Day">
-        <SevenHour></SevenHour>
+        <SevenHour sevenHour={props.SevenHour}></SevenHour>
       </Tab>
       <Tab label="Eleven Hour">
-        <TenDay></TenDay>
+        <TenDay tenDay={props.TenDay}></TenDay>
       </Tab>
     </Tabs>
   )

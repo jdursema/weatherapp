@@ -5,13 +5,12 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import AppBar from 'material-ui/AppBar';
 import AutoComplete from 'material-ui/AutoComplete';
 import RaisedButton from 'material-ui/RaisedButton';
-import CurrentWeather from './Containers/CurrentWeather/CurrentWeather';
-import Forecast from './Components/Forecast/Forecast';
 import cities from './Cities';
 import FlatButton from 'material-ui/FlatButton';
 import Dialog from 'material-ui/Dialog';
 import MapsPlace from 'material-ui/svg-icons/maps/place';
 import IconButton from 'material-ui/IconButton';
+import Main from './Containers/Main/Main';
 
 class App extends Component {
   constructor () {
@@ -96,8 +95,7 @@ class App extends Component {
             </div>
           }
         />
-        <CurrentWeather/>
-        <Forecast/>
+        <Main/>
       </MuiThemeProvider> 
     );
   }
