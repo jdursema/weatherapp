@@ -1,74 +1,52 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
 import './CurrentWeather.css';
-import Dialog from 'material-ui/Dialog';
-class CurrentWeather extends Component {
-  constructor () {
-    super ();
-    this.state = {
-      currentWeather: {},
-      open: true
-    }
-  }
+import PropTypes from 'prop-types';
 
-  componentWillReceiveProps(nextProps){
-    this.setState({currentWeather: nextProps.forecast.currentWeather})
-  }
-
-  handleClose = () => {
-    this.setState({open: false});
-  };
-  
-  render() {
-    if(this.props.error){
-      return (
-        <Dialog
-                title={this.props.error}
-                modal={false}
-                open= {this.state.open}
-                onRequestClose={this.handleClose}
-                autoScrollBodyContent={true}
-              > 
-              </Dialog>
-      )
-    } else {
-      return (
-        <div>
+const CurrentWeather = (props) =>  {
+  if (props.CurrentWeather){
+    return (
+      <div>
         <div className = "current">
           <div className = "date-city">
             <div className = "city">
-              <p> {this.state.currentWeather.city} </p>
+              <p> {props.CurrentWeather.city} </p>
             </div>
             <div className = "current-temp">
-              <h1> {this.state.currentWeather.avgTemp}&deg;</h1>
-  
+              <h1> {props.CurrentWeather.avgTemp}&deg;</h1>
+    
             </div>
             <div className = "date">
-              <p> {this.state.currentWeather.dateWeekDay}, {this.state.currentWeather.dateMonth} {this.state.currentWeather.dateDay} </p> 
-            
+              <p> {props.CurrentWeather.dateWeekDay}, {props.CurrentWeather.dateMonth} {props.CurrentWeather.dateDay} </p> 
+              
             </div>
           </div>
-            <div className = "current-cond">
-              <p>{this.state.currentWeather.currentCond}</p>
-            </div>
-            <div className = "high-low">
-              <p> High: {this.state.currentWeather.highTemp}&deg;|
-               Low: {this.state.currentWeather.lowTemp}&deg;</p>
-            </div>
-  
+          <div className = "current-cond">
+            <p>{props.CurrentWeather.currentCond}</p>
+          </div>
+          <div className = "high-low">
+            <p> High: {props.CurrentWeather.highTemp}&deg;|
+                 Low: {props.CurrentWeather.lowTemp}&deg;</p>
+          </div>
+    
           <div className = "summary">
-            <p> {this.state.currentWeather.summary} </p>
+            <p> {props.CurrentWeather.summary} </p>
           </div>   
+        </div>
+      </div>     
+    );
+  } else {
+    return (
+      <div>
       </div>
-    </div>     
-      )
-    }
+    );
   }
-}
+  
+};
 
-const mapStateToProps = state => ({
-  forecast: state.forecast,
-  error: state.error
-})
 
-export default connect(mapStateToProps, null) (CurrentWeather);
+
+export default CurrentWeather;
+
+CurrentWeather.propTypes = {
+  CurrentWeather: PropTypes.object
+};
