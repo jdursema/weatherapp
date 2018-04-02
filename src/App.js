@@ -11,20 +11,21 @@ import Dialog from 'material-ui/Dialog';
 import MapsPlace from 'material-ui/svg-icons/maps/place';
 import IconButton from 'material-ui/IconButton';
 import Main from './Containers/Main/Main';
+import PropTypes from 'prop-types';
 
 class App extends Component {
   constructor () {
-    super ();
+    super();
     this.state = {
       open: false,
       disabled: true,
       searchInput: '',
       currentCity: 'Denver, CO'
-    }
+    };
   }
 
   componentDidMount = () => {
-    this.props.handleWeather(this.state.currentCity)
+    this.props.handleWeather(this.state.currentCity);
   }
   
   handleOpen = () => {
@@ -35,11 +36,11 @@ class App extends Component {
     this.setState({open: false});
   };
 
-  enableButton = (event) => {
-    if(this.state.searchInput === ''){
-      this.setState({disabled: true})
+  enableButton = () => {
+    if (this.state.searchInput === ''){
+      this.setState({disabled: true});
     } else {
-      this.setState({disabled: false})
+      this.setState({disabled: false});
     }
   }
 
@@ -49,7 +50,7 @@ class App extends Component {
   }
 
   changeInput = (event) => {
-    this.setState({searchInput: event})
+    this.setState({searchInput: event});
   }
 
   render() {
@@ -73,22 +74,22 @@ class App extends Component {
                 autoScrollBodyContent={true}
               >
 
-              <AutoComplete
-                floatingLabelText="Type in a city"
-                filter={AutoComplete.caseInsensitiveFilter}
-                dataSource={cities.data}
-                maxSearchResults={5}
-                onUpdateInput={this.changeInput}
-              />
-              <FlatButton 
-                label="Cancel"
-                onClick = {this.handleClose}
-              />
-              <FlatButton 
-                label="Submit"
-                disabled = {false}
-                onClick = {this.changeCity}
-              />
+                <AutoComplete
+                  floatingLabelText="Type in a city"
+                  filter={AutoComplete.caseInsensitiveFilter}
+                  dataSource={cities.data}
+                  maxSearchResults={5}
+                  onUpdateInput={this.changeInput}
+                />
+                <FlatButton 
+                  label="Cancel"
+                  onClick = {this.handleClose}
+                />
+                <FlatButton 
+                  label="Submit"
+                  disabled = {false}
+                  onClick = {this.changeCity}
+                />
 
                 
               </Dialog>
@@ -106,7 +107,11 @@ const mapDispatchToProps = dispatch => ({
     type: 'FETCH_WEATHER',
     city
   })
-})
+});
 
 
 export default connect(null, mapDispatchToProps)(App);
+
+App.propTypes = {
+  handleWeather: PropTypes.func
+};
