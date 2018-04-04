@@ -1,18 +1,18 @@
-import { call, put, takeEvery, all } from 'redux-saga/effects'
+import { call, put, takeEvery, all } from 'redux-saga/effects';
 import { fetchForecast } from './Helpers/forecasthelper';
 
-function* fetchWeather(action){
+export function* fetchWeather(action){
   try{
-    const weatherData = yield call(fetchForecast, action.city)
-    yield put({ type: 'FETCH_WEATHER_DONE', weatherData })
+    const weatherData = yield call(fetchForecast, action.city);
+    yield put({ type: 'FETCH_WEATHER_DONE', weatherData });
   }
   catch (error) {
-    yield put ({ type: 'FETCH_FAILED' })
+    yield put({ type: 'FETCH_FAILED' });
   }
 }
 
-function* watchFetchWeather(){
-  yield takeEvery('FETCH_WEATHER', fetchWeather)
+export function* watchFetchWeather(){
+  yield takeEvery('FETCH_WEATHER', fetchWeather);
 }
 
 
